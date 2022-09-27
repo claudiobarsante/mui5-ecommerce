@@ -12,13 +12,13 @@ import { Colors } from 'styles/theme/colors';
 // -- types
 import { AppbarProps } from './types';
 
-export default function Actions({ matches }: AppbarProps) {
-  const Component = matches
+export default function Actions({ isMobile }: AppbarProps) {
+  const ComponentContainer = isMobile
     ? ActionIconsContainerMobile
     : ActionIconsContainerDesktop;
 
   return (
-    <Component>
+    <ComponentContainer>
       <MyList type="row">
         <ListItemButton
           sx={{
@@ -29,7 +29,7 @@ export default function Actions({ matches }: AppbarProps) {
             sx={{
               display: 'flex',
               justifyContent: 'center',
-              color: matches ? Colors.secondary : ''
+              color: isMobile ? Colors.secondary : ''
             }}
           >
             <ShoppingCartIcon />
@@ -45,7 +45,7 @@ export default function Actions({ matches }: AppbarProps) {
             sx={{
               display: 'flex',
               justifyContent: 'center',
-              color: matches ? Colors.secondary : ''
+              color: isMobile ? Colors.secondary : ''
             }}
           >
             <FavoriteIcon />
@@ -61,7 +61,7 @@ export default function Actions({ matches }: AppbarProps) {
             sx={{
               display: 'flex',
               justifyContent: 'center',
-              color: matches ? Colors.secondary : ''
+              color: isMobile ? Colors.secondary : ''
             }}
           >
             <PersonIcon />
@@ -69,6 +69,6 @@ export default function Actions({ matches }: AppbarProps) {
         </ListItemButton>
         <Divider orientation="vertical" flexItem />
       </MyList>
-    </Component>
+    </ComponentContainer>
   );
 }

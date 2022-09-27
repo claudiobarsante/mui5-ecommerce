@@ -1,3 +1,3 @@
 export type AppbarProps = {
-	matches: boolean;
+  isMobile: boolean;
 };

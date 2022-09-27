@@ -10,7 +10,7 @@ import * as S from './styles';
 // -- Types
 import { AppbarProps } from './types';
 
-export default function AppbarMobile({ matches }: AppbarProps) {
+export default function AppbarMobile({ isMobile }: AppbarProps) {
   //const { setDrawerOpen, setShowSearchBox } = useUIContext();
   return (
     <S.AppbarContainer>
@@ -23,7 +23,7 @@ export default function AppbarMobile({ matches }: AppbarProps) {
       <IconButton onClick={() => {}}>
         <SearchIcon />
       </IconButton>
-      <Actions matches={matches} />
+      <Actions isMobile={isMobile} />
     </S.AppbarContainer>
   );
 }

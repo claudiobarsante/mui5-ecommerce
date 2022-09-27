@@ -7,7 +7,7 @@ import * as S from './styles';
 import SearchIcon from '@mui/icons-material/Search';
 import Actions from './Actions';
 
-export default function AppbarDesktop({ matches }: AppbarProps) {
+export default function AppbarDesktop({ isMobile }: AppbarProps) {
   return (
     <S.AppbarContainer>
       <S.AppbarHeader>MyBags</S.AppbarHeader>
@@ -23,7 +23,7 @@ export default function AppbarDesktop({ matches }: AppbarProps) {
           </ListItemIcon>
         </ListItemButton>
       </S.MyList>
-      <Actions matches={matches} />
+      <Actions isMobile={isMobile} />
     </S.AppbarContainer>
   );
 }
