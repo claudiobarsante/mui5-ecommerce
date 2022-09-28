@@ -31,13 +31,13 @@ export const ActionButton = styled(IconButton)(() => ({
 }));
 
 type ProductFavButtonProps = {
-  isFav: boolean;
+  isfav: number; //has to be all in lower case to avoid Warning: React does not recognize the `isFav` prop on a DOM element
   theme?: Theme;
 };
 
 export const FavButton = styled(ActionButton)(
-  ({ isFav, theme }: ProductFavButtonProps) => ({
-    color: isFav ? Colors.primary : Colors.light,
+  ({ isfav, theme }: ProductFavButtonProps) => ({
+    color: isfav ? Colors.primary : Colors.light,
     [theme!.breakpoints?.up('md')]: {
       position: 'absolute',
       right: 0,
@@ -47,21 +47,23 @@ export const FavButton = styled(ActionButton)(
 );
 
 type AddToCartButtonProps = {
-  isToShow: boolean;
+  istoshow: string;
   theme?: Theme;
 };
 export const AddToCartButton = styled(Button)(
-  ({ isToShow, theme }: AddToCartButtonProps) => ({
+  ({ istoshow, theme }: AddToCartButtonProps) => ({
     width: '120px',
     fontSize: '12px',
+    border: '1px solid yellow',
     [theme!.breakpoints.up('md')]: {
       position: 'absolute',
       bottom: '2%',
       width: '300px',
       padding: '10px 5px',
       animation:
-        isToShow &&
-        `${slideInBottom} 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`
+        istoshow === 'true'
+          ? `${slideInBottom} 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`
+          : ''
     },
     background: Colors.secondary,
     opacity: 0.9
@@ -77,15 +79,16 @@ export const ProductInfoContainer = styled(Box)(() => ({
 
 type ActionsButtonsContainerProps = AddToCartButtonProps;
 export const ActionsButtonsContainer = styled(Box)(
-  ({ isToShow, theme }: ActionsButtonsContainerProps) => ({
+  ({ istoshow, theme }: ActionsButtonsContainerProps) => ({
     [theme!.breakpoints.up('md')]: {
-      display: isToShow ? 'visible' : 'none',
+      display: istoshow === 'true' ? 'visible' : 'none',
       position: 'absolute',
       right: 0,
       top: '20%',
       animation:
-        isToShow &&
-        `${slideInRight} 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`
+        istoshow === 'true'
+          ? `${slideInRight} 0.5s cubic-bezier(0.250, 0.460, 0.450, 0.940) both`
+          : ''
     }
   })
 );

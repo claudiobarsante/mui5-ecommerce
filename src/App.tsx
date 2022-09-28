@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { Container, ThemeProvider } from '@mui/material';
+import { Container, ThemeProvider, Box, Typography } from '@mui/material';
 import theme from 'styles/theme';
 import Appbar from 'components/Appbar';
 import HeroBanner from 'components/HeroBanner';
@@ -17,6 +17,9 @@ function App() {
         <Appbar />
         <HeroBanner />
         <PromotionsSlider />
+        <Box display="flex" justifyContent="center" sx={{ p: 4 }}>
+          <Typography variant="h4">Our Products</Typography>
+        </Box>
         <Featured />
       </Container>
     </ThemeProvider>
