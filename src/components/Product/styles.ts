@@ -25,20 +25,20 @@ export const ProductImage = styled('img')(({ src, theme }) => ({
   }
 }));
 
-export const ProductActionButton = styled(IconButton)(() => ({
+export const ActionButton = styled(IconButton)(() => ({
   background: Colors.white,
   margin: 4
 }));
 
 type ProductFavButtonProps = {
   isFav: boolean;
-  theme: Theme;
+  theme?: Theme;
 };
 
-export const ProductFavButton = styled(ProductActionButton)(
+export const FavButton = styled(ActionButton)(
   ({ isFav, theme }: ProductFavButtonProps) => ({
     color: isFav ? Colors.primary : Colors.light,
-    [theme.breakpoints.up('md')]: {
+    [theme!.breakpoints?.up('md')]: {
       position: 'absolute',
       right: 0,
       top: 0
@@ -46,15 +46,15 @@ export const ProductFavButton = styled(ProductActionButton)(
   })
 );
 
-type ButtonAddToCartProps = {
+type AddToCartButtonProps = {
   isToShow: boolean;
-  theme: Theme;
+  theme?: Theme;
 };
-export const ButtonAddToCart = styled(Button)(
-  ({ isToShow, theme }: ButtonAddToCartProps) => ({
+export const AddToCartButton = styled(Button)(
+  ({ isToShow, theme }: AddToCartButtonProps) => ({
     width: '120px',
     fontSize: '12px',
-    [theme.breakpoints.up('md')]: {
+    [theme!.breakpoints.up('md')]: {
       position: 'absolute',
       bottom: '2%',
       width: '300px',
@@ -75,10 +75,10 @@ export const ProductInfoContainer = styled(Box)(() => ({
   alignItems: 'center'
 }));
 
-type ActionsButtonsContainerProps = ButtonAddToCartProps;
+type ActionsButtonsContainerProps = AddToCartButtonProps;
 export const ActionsButtonsContainer = styled(Box)(
   ({ isToShow, theme }: ActionsButtonsContainerProps) => ({
-    [theme.breakpoints.up('md')]: {
+    [theme!.breakpoints.up('md')]: {
       display: isToShow ? 'visible' : 'none',
       position: 'absolute',
       right: 0,
