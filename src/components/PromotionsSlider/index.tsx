@@ -23,11 +23,9 @@ export default function PromotionsSlider() {
 
     const intervalId = setInterval(() => {
       // get next message
-      // -- using mod to not exceed the maximum index of messages
-      //setMessageIndex((i) => (i + 1) % messages.length);
       setMessageIndex((previous) => {
         const newIdx = previous + 1;
-        if (newIdx > messages.length - 1) return 0;
+        if (newIdx > messages.length - 1) return 0; //control to not exceed the last index of the messages
         return newIdx;
       });
       // slide the message in
@@ -44,6 +42,7 @@ export default function PromotionsSlider() {
   }, []);
 
   return (
+    //? using ref, to avoid the message to run out the container
     <S.PromotionsContainer ref={containerRef} overflow="hidden">
       <Slide
         direction={show ? 'left' : 'right'}

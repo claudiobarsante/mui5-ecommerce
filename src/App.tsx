@@ -4,6 +4,7 @@ import theme from 'styles/theme';
 import Appbar from 'components/Appbar';
 import HeroBanner from 'components/HeroBanner';
 import PromotionsSlider from 'components/PromotionsSlider';
+import Featured from 'components/Featured';
 
 function App() {
   useEffect(() => {
@@ -16,6 +17,7 @@ function App() {
         <Appbar />
         <HeroBanner />
         <PromotionsSlider />
+        <Featured />
       </Container>
     </ThemeProvider>
   );
